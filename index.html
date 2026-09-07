@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CROMTEL | Powering the TRUSTLENS Ecosystem</title>
+
+  <meta name="description" content="CROMTEL is the native utility token of the TRUSTLENS Web3 intelligence ecosystem. Analyze. Verify. Participate.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050816;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(5, 8, 22, 0.92);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      box-shadow: 0 0 25px rgba(79,70,229,0.45);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-button {
+      padding: 11px 18px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      font-weight: bold;
+      color: white !important;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 120px 0 80px;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(79,70,229,0.25), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(6,182,212,0.12), transparent 30%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid rgba(99,102,241,0.5);
+      border-radius: 30px;
+      color: #a5b4fc;
+      font-size: 13px;
+      margin-bottom: 25px;
+      background: rgba(79,70,229,0.08);
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 10vw, 100px);
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -4px;
+      background: linear-gradient(90deg, #ffffff, #8b5cf6, #22d3ee);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero h2 {
+      font-size: clamp(22px, 4vw, 42px);
+      margin: 25px 0 15px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #94a3b8;
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .primary {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    }
+
+    .secondary {
+      border: 1px solid #334155;
+      color: #e2e8f0;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .tagline {
+      margin-top: 45px;
+      color: #67e8f9;
+      font-weight: 800;
+      letter-spacing: 4px;
+      font-size: 13px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(30px, 5vw, 48px);
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* PROBLEM */
+    .problem-grid,
+    .feature-grid,
+    .utility-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(15,23,42,0.7);
+      border: 1px solid rgba(148,163,184,0.12);
+      border-radius: 16px;
+      padding: 28px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(99,102,241,0.5);
+    }
+
+    .card-icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    /* TRUSTLENS */
+    .trust-box {
+      padding: 50px;
+      border-radius: 25px;
+      background:
+        linear-gradient(135deg, rgba(79,70,229,0.16), rgba(6,182,212,0.08));
+      border: 1px solid rgba(99,102,241,0.25);
+      text-align: center;
+    }
+
+    .trust-box h3 {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .trust-box p {
+      color: #a5b4fc;
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .step {
+      padding: 20px 10px;
+      background: rgba(5,8,22,0.6);
+      border-radius: 12px;
+      border: 1px solid #1e293b;
+    }
+
+    .step strong {
+      display: block;
+      color: #22d3ee;
+      margin-bottom: 5px;
+    }
+
+    /* TOKEN */
+    .token-section {
+      background: #070b1d;
+    }
+
+    .token-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .token-name {
+      font-size: 60px;
+      font-weight: 900;
+      background: linear-gradient(90deg, #8b5cf6, #22d3ee);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .token-box p {
+      color: #94a3b8;
+      margin: 15px 0;
+    }
+
+    .token-info {
+      display: grid;
+      gap: 12px;
+    }
+
+    .info {
+      padding: 18px;
+      border-radius: 10px;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+    }
+
+    .info span {
+      color: #64748b;
+      font-size: 13px;
+      display: block;
+    }
+
+    /* ROADMAP */
+    .roadmap {
+      display: grid;
+      gap: 20px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .phase {
+      display: flex;
+      gap: 20px;
+      padding: 25px;
+      border-left: 3px solid #6366f1;
+      background: #0f172a;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .phase-number {
+      font-weight: 900;
+      color: #22d3ee;
+      min-width: 80px;
+    }
+
+    .phase p {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    /* PRESALE */
+    .presale {
+      text-align: center;
+      padding: 70px 30px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #11183a, #071b2a);
+      border: 1px solid rgba(34,211,238,0.2);
+    }
+
+    .coming {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: rgba(34,211,238,0.1);
+      color: #67e8f9;
+      font-weight: 800;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 50px 0;
+      border-top: 1px solid #1e293b;
+      text-align: center;
+      color: #64748b;
+    }
+
+    footer .logo {
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .problem-grid,
+      .feature-grid,
+      .utility-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .token-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .trust-box {
+        padding: 30px 20px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+
+    <a href="#" class="logo">
+      <span class="logo-mark">C</span>
+      CROMTEL
+    </a>
+
+    <div class="nav-links">
+      <a href="#trustlens">TRUSTLENS</a>
+      <a href="#cromtel">CROMTEL</a>
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#presale">Presale</a>
+      <a href="#presale" class="nav-button">Join Presale</a>
+    </div>
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+  <div class="container">
+
+    <div class="badge">THE TRUSTLENS WEB3 ECOSYSTEM</div>
+
+    <h1>CROMTEL</h1>
+
+    <h2>Powering the TRUSTLENS Ecosystem</h2>
+
+    <p>
+      CROMTEL is the native utility token of TRUSTLENS,
+      a Web3 intelligence and transparency platform designed
+      to help users analyze crypto projects and understand
+      potential risks.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#presale" class="button primary">JOIN THE PRESALE</a>
+      <a href="#trustlens" class="button secondary">EXPLORE TRUSTLENS</a>
+    </div>
+
+    <div class="tagline">
+      ANALYZE • VERIFY • PARTICIPATE
+    </div>
+
+  </div>
+</header>
+
+
+<!-- PROBLEM -->
+
+<section>
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Web3 Has a Trust Problem</h2>
+      <p>
+        Important information about crypto projects is often
+        fragmented, technical and difficult to interpret.
+      </p>
+    </div>
+
+    <div class="problem-grid">
+
+      <div class="card">
+        <div class="card-icon">🔐</div>
+        <h3>Smart Contract Risk</h3>
+        <p>
+          Users may struggle to understand ownership,
+          permissions and contract controls.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📊</div>
+        <h3>Tokenomics Opacity</h3>
+        <p>
+          Holder concentration, supply and distribution
+          can be difficult to evaluate.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Fragmented Information</h3>
+        <p>
+          Important project information can be spread
+          across many different platforms.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📣</div>
+        <h3>Hype-Driven Decisions</h3>
+        <p>
+          Marketing and social media can sometimes
+          overshadow fundamental information.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <h3>Information Overload</h3>
+        <p>
+          Blockchain data exists, but turning raw data
+          into useful intelligence is difficult.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔎</div>
+        <h3>Limited Risk Intelligence</h3>
+        <p>
+          Users need accessible tools that help them
+          investigate projects before interacting with them.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- TRUSTLENS -->
+
+<section id="trustlens">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Meet TRUSTLENS</h2>
+      <p>
+        A Web3 intelligence and transparency platform
+        designed to help users investigate projects beyond
+        the hype.
+      </p>
+    </div>
+
+    <div class="trust-box">
+
+      <h3>See Beyond the Hype.</h3>
+
+      <p>
+        TRUSTLENS brings together blockchain and publicly
+        available project information and organizes it into
+        an accessible research experience.
+      </p>
+
+      <div class="steps">
+
+        <div class="step">
+          <strong>01</strong>
+          SEARCH
+        </div>
+
+        <div class="step">
+          <strong>02</strong>
+          ANALYZE
+        </div>
+
+        <div class="step">
+          <strong>03</strong>
+          IDENTIFY
+        </div>
+
+        <div class="step">
+          <strong>04</strong>
+          ASSESS
+        </div>
+
+        <div class="step">
+          <strong>05</strong>
+          INVESTIGATE
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FEATURES -->
+
+<section>
+  <div class="container">
+
+    <div class="section-title">
+      <h2>TRUSTLENS Intelligence</h2>
+      <p>
+        Multiple layers of information brought together
+        in one ecosystem.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>Smart Contract Analysis</h3>
+        <p>
+          Examine ownership privileges, minting,
+          blacklist functions, transfer restrictions,
+          trading controls and upgradeability.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Tokenomics Analysis</h3>
+        <p>
+          Examine supply, holder concentration,
+          distribution, liquidity information and
+          wallet movements.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">👛</div>
+        <h3>Wallet Intelligence</h3>
+        <p>
+          Explore available blockchain information
+          surrounding token holders and wallet activity.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🛡️</div>
+        <h3>Transparency</h3>
+        <p>
+          Organize publicly available information about
+          teams, documentation, roadmaps and development.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📰</div>
+        <h3>Web3 News</h3>
+        <p>
+          A community-oriented layer for discovering
+          and publishing relevant Web3 information.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Community</h3>
+        <p>
+          Discussion groups and project channels designed
+          to connect Web3 users and communities.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CROMTEL -->
+
+<section id="cromtel" class="token-section">
+
+  <div class="container">
+
+    <div class="token-box">
+
+      <div>
+
+        <div class="badge">NATIVE UTILITY TOKEN</div>
+
+        <div class="token-name">CROMTEL</div>
+
+        <h2>The Utility Layer of TRUSTLENS</h2>
+
+        <p>
+          CROMTEL is designed to connect users, projects
+          and selected platform services within the
+          TRUSTLENS ecosystem.
+        </p>
+
+        <p>
+          As the platform develops, CROMTEL may support
+          premium intelligence features, analysis credits,
+          ecosystem participation and other platform utilities.
+        </p>
+
+        <a href="#presale" class="button primary">
+          LEARN ABOUT THE PRESALE
+        </a>
+
+      </div>
+
+      <div class="token-info">
+
+        <div class="info">
+          <span>Token Name</span>
+          CROMTEL
+        </div>
+
+        <div class="info">
+          <span>Role</span>
+          TRUSTLENS Native Utility Token
+        </div>
+
+        <div class="info">
+          <span>Blockchain</span>
+          To Be Announced
+        </div>
+
+        <div class="info">
+          <span>Contract Address</span>
+          To Be Announced
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TOKENOMICS -->
+
+<section id="tokenomics">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>CROMTEL Tokenomics</h2>
+
+      <p>
+        Token allocation and supply information will be
+        published after the final token structure has been
+        established.
+      </p>
+
+    </div>
+
+    <div class="utility-grid">
+
+      <div class="card">
+        <div class="card-icon">🪙</div>
+        <h3>Total Supply</h3>
+        <p>To Be Announced</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Presale Allocation</h3>
+        <p>To Be Announced</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">💧</div>
+        <h3>Liquidity</h3>
+        <p>To Be Announced</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🏗️</div>
+        <h3>Ecosystem</h3>
+        <p>To Be Announced</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">👥</div>
+        <h3>Community</h3>
+        <p>To Be Announced</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔧</div>
+        <h3>Development</h3>
+        <p>To Be Announced</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ROADMAP -->
+
+<section id="roadmap">
+
+  <div class="container">
+
+    <div class="section-title">
+
+      <h2>Roadmap</h2>
+
+      <p>
+        Building the TRUSTLENS ecosystem step by step.
+      </p>
+
+    </div>
+
+    <div class="roadmap">
+
+      <div class="phase">
+
+        <div class="phase-number">PHASE 01</div>
+
+        <div>
+          <h3>Foundation</h3>
+          <p>
+            Platform architecture, CROMTEL ecosystem design,
+            database infrastructure and initial intelligence
+            foundation.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="phase">
+
+        <div class="phase-number">PHASE 02</div>
+
+        <div>
+          <h3>Intelligence</h3>
+          <p>
+            Smart-contract analysis, tokenomics,
+            wallet intelligence, transparency assessment
+            and risk intelligence.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="phase">
+
+        <div class="phase-number">PHASE 03</div>
+
+        <div>
+          <h3>Community</h3>
+          <p>
+            User accounts, Web3 news, discussion groups,
+            project channels and community features.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="phase">
+
+        <div class="phase-number">PHASE 04</div>
+
+        <div>
+          <h3>CROMTEL Utility</h3>
+          <p>
+            Integration of CROMTEL into selected platform
+            services and ecosystem utilities.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="phase">
+
+        <div class="phase-number">PHASE 05</div>
+
+        <div>
+          <h3>Expansion</h3>
+          <p>
+            Multi-chain support, advanced monitoring,
+            APIs, developer integrations and partnerships.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PRESALE -->
+
+<section id="presale">
+
+  <div class="container">
+
+    <div class="presale">
+
+      <div class="badge">CROMTEL PRESALE</div>
+
+      <h2>Join the Beginning of the TRUSTLENS Ecosystem</h2>
+
+      <div class="coming">
+        PRESALE — COMING SOON
+      </div>
+
+      <p>
+        Presale details will be announced after the
+        CROMTEL token structure, smart contract and
+        launch infrastructure have been finalized and
+        tested.
+      </p>
+
+      <br>
+
+      <a href="#" class="button secondary">
+        PRESALE DETAILS — COMING SOON
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="logo">
+      <span class="logo-mark">C</span>
+      CROMTEL
+    </div>
+
+    <p>
+      Powering the TRUSTLENS Web3 Intelligence Ecosystem.
+    </p>
+
+    <p style="margin-top:20px;">
+      ANALYZE • VERIFY • PARTICIPATE
+    </p>
+
+    <p style="margin-top:25px;font-size:12px;">
+      © 2026 CROMTEL. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
